@@ -1,0 +1,1 @@
+//CardDetailPage.jsx para el detalle de cartas de la lectura
