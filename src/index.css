@@ -28,15 +28,28 @@
   --color-beige-darker: #bc9e76;
 }
 
+#root {
+  /* max-width: 1280px; */
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  display: flex;
-  place-items: center;
+  /* display: flex; */
+  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--color-beige-lunar);
