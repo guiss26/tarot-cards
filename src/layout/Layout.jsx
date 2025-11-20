@@ -8,7 +8,7 @@ const Layout = () => {
     return (
         <>
             <Navbar />
-            <Box sx={{ flex: 1}}>
+            <Box component="main" sx={{ flexGrow: 1, mt: 4}}>
                 <Outlet />
             </Box>
             <Footer />
