@@ -39,19 +39,14 @@ const CardList = ({ onCardClick }) => {
 
     const columns = getColumns();
 
-    // Simular carga de cartas (reemplaza esto con tu getAllCards())
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                // Simulación de datos - REEMPLAZA con: const data = await getAllCards();
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                const data = Array.from({ length: 22 }, (_, i) => ({
-                    id: i + 1,
-                    name: `Carta ${i + 1}`
-                }));
-
-                console.log('Cartas cargadas:', data);
+                
+                const data = await getAllCards()
+                console.log('Cartas cargadas desde API: ', data)
+                
                 setTarotCards(data);
                 setError(null);
             } catch (error) {
