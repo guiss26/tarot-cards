@@ -1,20 +1,12 @@
 //CardList.jsx lista de las cartas. Falta funcionalidad
 //CardsGrid.jsx
-import CardItem from "./CardItem"
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import {
     Box,
-    Card,
-    CardActionArea,
-    CardMedia,
-    alpha,
     useTheme,
     useMediaQuery
 } from '@mui/material';
-import { Link as RouterLink } from "react-router-dom";
-import { getAllCards } from '../services/TarotServices.jsx' //CONTINUAR POR DETALLE DE CARTA
-import ImageWithFallback from "./ImageWithFallback.jsx";
+import { getAllCards } from '../services/TarotServices.jsx' 
 import { useNavigate } from "react-router-dom";
 
 const CardList = ({ onCardClick }) => {
