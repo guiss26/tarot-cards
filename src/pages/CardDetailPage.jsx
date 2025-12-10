@@ -106,7 +106,6 @@ const CardDetailPage = (cardId, onBack) => {
                 >
                     <Typography
                         variant="h3"
-                        component="h2"
                         sx={{
                             color: 'primary.contrastText',
                             display: 'flex',
