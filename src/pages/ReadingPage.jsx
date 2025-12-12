@@ -214,7 +214,7 @@ const ReadingPage = () => {
             <Container maxWidth="lg" sx={{ py: 8, display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
                 <Box sx={{ textAlign: 'center' }}>
                     <CircularProgress size={60} sx={{ color: '#d4af37', mb: 2 }} />
-                    <Typography variant="h6" sx={{ color: 'primary.light' }}>
+                    <Typography variant="h6" sx={{ color: 'white' }}>
                         Preparando las cartas del tarot...
                     </Typography>
                 </Box>
