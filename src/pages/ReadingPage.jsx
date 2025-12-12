@@ -4,8 +4,9 @@ import {
     Container,
     Box,
     Typography,
-    Card,
-    CardMedia,
+    // Card,
+    // CardContent,
+    // CardMedia,
     Button,
     IconButton,
     Modal,
@@ -91,7 +92,7 @@ const NavButton = styled(IconButton)(({ theme }) => ({
     color: 'white',
     zIndex: 10,
     '&:hover': {
-        backgroundColor: '#9C27B0',
+        backgroundColor: '#695841',
     },
     boxShadow: theme.shadows[6],
     width: 40,
@@ -119,10 +120,10 @@ const ModalContent = styled(Paper)(({ theme }) => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    background: 'linear-gradient(to bottom, #4A148C, #311B92)',
+    background: 'rgba(48, 44, 41, 0.7)',
     borderRadius: theme.spacing(3),
     padding: theme.spacing(6),
-    border: '2px solid rgba(156, 39, 176, 0.5)',
+    border: '2px solid rgba(0, 0, 0, 0.3)',
     boxShadow: theme.shadows[24],
     maxWidth: 1200,
     width: '90%',
@@ -268,7 +269,7 @@ const ReadingPage = () => {
                     <Typography
                         variant="h3"
                         sx={{
-                            color: '#52463b',
+                            color: '#ab937b',
                             mb: 3,
                             fontWeight: 600,
                         }}
@@ -276,8 +277,7 @@ const ReadingPage = () => {
                         Lectura del Tarot
                     </Typography>
                     <Typography
-                        // variant="h5"
-                        sx={{ color: '#434543' }}
+                        sx={{ color: '#727572' }}
                     >
                         ¿Qué energías te rodean? Escoge una carta para:{' '}
                         <Box component="span" sx={{ color: '#d4af37' }}>
@@ -367,6 +367,7 @@ const ReadingPage = () => {
                                     sx={{
                                         opacity: selectedCards.length >= 3 && !selected ? 0.5 : 1,
                                         cursor: selectedCards.length >= 3 && !selected ? 'not-allowed' : 'pointer',
+                                        my: 2
                                     }}
                                 >
                                     <ImageWithFallback
@@ -380,7 +381,7 @@ const ReadingPage = () => {
                                                 position: 'absolute',
                                                 top: 8,
                                                 right: 8,
-                                                backgroundColor: 'rgba(156, 39, 176, 0.9)',
+                                                backgroundColor: 'rgb(90, 74, 54) 90%)',
                                                 borderRadius: '50%',
                                                 width: 32,
                                                 height: 32,
@@ -439,9 +440,9 @@ const ReadingPage = () => {
                                 position: 'absolute',
                                 top: 16,
                                 right: 16,
-                                backgroundColor: '#7B1FA2',
+                                backgroundColor: '#332d27',
                                 color: 'white',
-                                '&:hover': { backgroundColor: '#9C27B0' },
+                                '&:hover': { backgroundColor: '#695841' },
                             }}
                         >
                             <CloseIcon />
@@ -460,13 +461,13 @@ const ReadingPage = () => {
                             Tu Lectura de Tarot
                         </Typography>
 
-                        <Box container spacing={4}>
+                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 5 }}>
                             {positions.map((position, index) => {
                                 const selectedCard = getCardForPosition(position);
                                 if (!selectedCard) return null;
 
                                 return (
-                                    <Box item xs={12} md={4} key={position}>
+                                    <Box key={position}>
                                         <Box
                                             sx={{
                                                 textAlign: 'center',
@@ -481,8 +482,8 @@ const ReadingPage = () => {
                                             <Chip
                                                 label={position}
                                                 sx={{
-                                                    backgroundColor: 'rgba(156, 39, 176, 0.2)',
-                                                    color: 'secondary.light',
+                                                    backgroundColor: 'rgba(188, 138, 77, 0.2)',
+                                                    color: 'white',
                                                     fontSize: '1.1rem',
                                                     mb: 3,
                                                     px: 2,
@@ -495,7 +496,7 @@ const ReadingPage = () => {
                                                     aspectRatio: '2/3',
                                                     borderRadius: 2,
                                                     overflow: 'hidden',
-                                                    border: '2px solid rgba(168, 85, 247, 0.3)',
+                                                    border: '2px solid rgba(33, 32, 30, 0.3)',
                                                     boxShadow: 8,
                                                     mb: 3,
                                                     opacity: 0,
@@ -508,10 +509,11 @@ const ReadingPage = () => {
                                             >
                                                 <ImageWithFallback
                                                     src="https://images.unsplash.com/photo-1751712698640-788fa51db5fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJvdCUyMGNhcmQlMjBteXN0aWNhbCUyMGlsbHVzdHJhdGlvbnxlbnwxfHx8fDE3NjQ1ODU3NDF8MA&ixlib=rb-4.1.0&q=80&w=1080" //cambiar
-                                                    // src={selectedCard.arcaneImage.imageSrc}
+                                                    // src={position.arcaneImage.imageSrc}
                                                     alt={selectedCard.card.name}
                                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                                 />
+                                                <Typography>klk</Typography>
                                             </Box>
 
                                             <Typography
