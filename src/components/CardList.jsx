@@ -1,5 +1,3 @@
-//CardList.jsx lista de las cartas. Falta funcionalidad
-//CardsGrid.jsx
 import { useState, useEffect } from 'react';
 import {
     Box,
@@ -88,7 +86,7 @@ const CardList = ({ onCardClick }) => {
                     width: '60px',
                     height: '60px',
                     border: '4px solid #f3f3f3',
-                    borderTop: '4px solid #6366f1',
+                    borderTop: '4px solid #d4af37',
                     borderRadius: '50%',
                     animation: 'spin 1s linear infinite'
                 }}></div>
@@ -185,7 +183,7 @@ const CardList = ({ onCardClick }) => {
                                     borderRadius: '8px',
                                     overflow: 'hidden',
                                     border: '2px solid #8b7355',
-                                    boxShadow: '0 8px 32px rgba(79, 70, 229, 0.3)',
+                                    boxShadow: '0 8px 32px rgba(59, 48, 32, 0.3)',
                                     backgroundColor: '#1a1a2e',
                                     transition: 'all 0.3s ease'
                                 }}>
@@ -214,7 +212,7 @@ const CardList = ({ onCardClick }) => {
                                             left: 0,
                                             right: 0,
                                             bottom: 0,
-                                            background: 'linear-gradient(to top, rgba(79, 70, 229, 0.5), transparent 70%)',
+                                            background: 'linear-gradient(to top, rgba(70, 53, 25, 0.5), transparent 70%)',
                                             opacity: 0.4,
                                             transition: 'opacity 0.3s ease',
                                             pointerEvents: 'none'
