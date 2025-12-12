@@ -1,12 +1,8 @@
-//ReadingPage.jsx
 import { useState, useRef, useEffect } from 'react';
 import {
     Container,
     Box,
     Typography,
-    // Card,
-    // CardContent,
-    // CardMedia,
     Button,
     IconButton,
     Modal,
@@ -43,7 +39,6 @@ const PositionCard = styled(Paper)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // width: '100%'
 
 }));
 
@@ -66,7 +61,6 @@ const CarouselCard = styled(Paper)(({ theme, selected }) => ({
 const CarouselContainer = styled(Box)(({ theme }) => ({
     position: 'relative',
     maxWidth: 1200,
-    // margin: '0 auto',
     margin: '0 5%',
     marginBottom: theme.spacing(4),
 }));
@@ -214,12 +208,12 @@ const ReadingPage = () => {
         return selectedCards.some(sc => sc.card.id === cardId);
     };
 
-    // ✅ MOSTRAR LOADING MIENTRAS CARGA
+    // MOSTRAR LOADING MIENTRAS CARGA
     if (loading) {
         return (
             <Container maxWidth="lg" sx={{ py: 8, display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
                 <Box sx={{ textAlign: 'center' }}>
-                    <CircularProgress size={60} sx={{ color: 'secondary.main', mb: 2 }} />
+                    <CircularProgress size={60} sx={{ color: '#d4af37', mb: 2 }} />
                     <Typography variant="h6" sx={{ color: 'primary.light' }}>
                         Preparando las cartas del tarot...
                     </Typography>
@@ -228,7 +222,7 @@ const ReadingPage = () => {
         );
     }
 
-    // ✅ MOSTRAR ERROR SI FALLA LA CARGA
+    // MOSTRAR ERROR SI FALLA LA CARGA
     if (error) {
         return (
             <Container maxWidth="lg" sx={{ py: 8, display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
@@ -239,11 +233,11 @@ const ReadingPage = () => {
         );
     }
 
-    // ✅ MOSTRAR MENSAJE SI NO HAY CARTAS
+    // MOSTRAR MENSAJE SI NO HAY CARTAS
     if (tarotCards.length === 0) {
         return (
             <Container maxWidth="lg" sx={{ py: 8, display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
-                <Typography variant="h6" sx={{ color: 'primary.light' }}>
+                <Typography variant="h6" sx={{ color: 'white' }}>
                     No hay cartas disponibles para la lectura
                 </Typography>
             </Container>
@@ -286,7 +280,7 @@ const ReadingPage = () => {
                     </Typography>
                 </Box>
 
-                {/* Box con espacios para las 3 cartas */}
+                {/* Box  3 cartas */}
                 <StyledCard
                     sx={{
                         opacity: 0,
@@ -298,12 +292,12 @@ const ReadingPage = () => {
                         },
                     }}
                 >
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4}}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4 }}>
                         {positions.map((position) => {
                             const selectedCard = getCardForPosition(position);
                             return (
                                 <Box>
-                                    <Box sx={{ textAlign: 'center'}}>
+                                    <Box sx={{ textAlign: 'center' }}>
                                         <PositionCard >
                                             {selectedCard ? (
                                                 <Box
@@ -341,7 +335,7 @@ const ReadingPage = () => {
                     </Box>
                 </StyledCard>
 
-                {/* Carrusel de cartas */}
+                {/* Carrusel cartas */}
                 <CarouselContainer>
                     {/* Botón Izquierda */}
                     <NavButton
@@ -425,7 +419,7 @@ const ReadingPage = () => {
                     </FinishButton>
                 </Box>
 
-                {/* Modal de Resultados */}
+                {/* Modal Resultados */}
                 <Modal
                     open={showResults}
                     onClose={handleCloseResults}
@@ -467,7 +461,7 @@ const ReadingPage = () => {
                                 if (!selectedCard) return null;
 
                                 return (
-                                    <Box key={position}>
+                                    <Box key={position} sx={{ width: '100%' }}>
                                         <Box
                                             sx={{
                                                 textAlign: 'center',
@@ -477,6 +471,7 @@ const ReadingPage = () => {
                                                     '0%': { opacity: 0, transform: 'translateY(20px)' },
                                                     '100%': { opacity: 1, transform: 'translateY(0)' },
                                                 },
+                                                width: '100%'
                                             }}
                                         >
                                             <Chip
@@ -508,26 +503,35 @@ const ReadingPage = () => {
                                                 }}
                                             >
                                                 <ImageWithFallback
-                                                    src="https://images.unsplash.com/photo-1751712698640-788fa51db5fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJvdCUyMGNhcmQlMjBteXN0aWNhbCUyMGlsbHVzdHJhdGlvbnxlbnwxfHx8fDE3NjQ1ODU3NDF8MA&ixlib=rb-4.1.0&q=80&w=1080" //cambiar
-                                                    // src={position.arcaneImage.imageSrc}
-                                                    alt={selectedCard.card.name}
-                                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                    src={selectedCard.card.arcaneImage.imageSrc}
+                                                    alt={selectedCard.card.arcaneName}
+                                                    style={{ width: '100%', height: '100%' }}
                                                 />
-                                                <Typography>klk</Typography>
                                             </Box>
 
                                             <Typography
                                                 variant="h5"
-                                                sx={{ color: 'primary.light', mb: 2 }}
+                                                sx={{ color: 'white', mb: 2 }}
                                             >
-                                                {selectedCard.card.name}
+                                                {selectedCard.card.arcaneName}
                                             </Typography>
 
                                             <Typography
                                                 variant="body1"
-                                                sx={{ color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.8 }}
+                                                sx={{
+                                                    color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.8, textAlign: 'initial', fontSize: '14px', height: '150px', overflowY: 'auto', '&::-webkit-scrollbar': {
+                                                        width: '6px',
+                                                    },
+                                                    '&::-webkit-scrollbar-thumb': {
+                                                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                                                        borderRadius: '10px',
+                                                    },
+                                                    '&::-webkit-scrollbar-track': {
+                                                        background: 'transparent',
+                                                    }, p: '2% 3% 4% 0'
+                                                }}
                                             >
-                                                {selectedCard.card.meaning}
+                                                {selectedCard.card.arcaneDescription}
                                             </Typography>
                                         </Box>
                                     </Box>
