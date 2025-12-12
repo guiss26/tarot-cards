@@ -1,22 +1,18 @@
-//TarotServices.jsx
 const URL_API = "https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot"
 
-// Método GET para el READ
+// Método GET 
 export async function getAllCards() {
-    const response = await fetch(URL_API)//petición HTTP get a la URL de la API, espera a que llegue la respuesta antes de continuar y en response guarda la respuesta que devuelve el servidor 
+    const response = await fetch(URL_API)
     if (!response.ok) throw new Error('Error al obtener las cartas')
     return response.json()
 }
 
+// Método GET/:id
 export async function getOneCard(id) {
-    // const response = await fetch(`${URL_API}/${id}`)
-    // if (!response.ok) throw new Error('Error al obtener la carta')
-    // return response.json()
-
     try {
         const response = await fetch(`${URL_API}/${id}`)
         if (!response.ok) {
-            return null //null si no existe
+            return null 
         }
 
         return await response.json()
