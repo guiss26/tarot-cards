@@ -23,7 +23,7 @@ export default function WelcomeScreen() {
                     position: 'relative', display: 'flex', justifyContent: 'center'
                 }}
             >
-                {/* Bola de cristal realista con CSS */}
+                {/* Bola de cristal */}
                 <motion.div
                     style={{
                         position: 'relative',
@@ -78,7 +78,7 @@ export default function WelcomeScreen() {
                         }}
                     />
 
-                    {/* Brillo mágico interno */}
+                    {/* Brillo interno */}
                     <motion.div
                         style={{
                             position: 'absolute',
@@ -159,8 +159,8 @@ export default function WelcomeScreen() {
                         position: 'absolute',
                         width: Math.random() * 8 + 2 + 'px',
                         height: Math.random() * 8 + 2 + 'px',
-                        background: `radial-gradient(circle, ${Math.random() > 0.5 ? '#c4b5fd' : '#a78bfa'
-                            }, ${Math.random() > 0.5 ? '#8b5cf6' : '#7c3aed'})`,
+                        background: `radial-gradient(circle, ${Math.random() > 0.5 ? '#fef3c7' : '#fde68a'
+                            }, ${Math.random() > 0.5 ? '#fbbf24' : '#f59e0b'})`,
                         borderRadius: '50%',
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
