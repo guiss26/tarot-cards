@@ -3,24 +3,32 @@ import App from "../App"
 import CardDetailPage from "../pages/CardDetailPage.jsx"
 import Layout from "../layout/Layout"
 import ReadingPage from "../pages/ReadingPage";
+import WelcomeScreen from "../components/WelcomeScreen.jsx";
 
-const routerTarot = createBrowserRouter([{
-    path: "/",
-    element: <Layout/>,
-    children: [
-        {
-            index: true,
-            element: <App></App>
-        },
-        {
-            path: "/detalle-carta/:id",
-            element: <CardDetailPage></CardDetailPage>
-        },
-        {
-            path: "/lectura-tarot",
-            element: <ReadingPage></ReadingPage>
-        }
-    ]
-}])
+const routerTarot = createBrowserRouter([
+    {
+        path: "/welcome-screen",
+        element: <WelcomeScreen />
+    },
+    {
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: <App></App>
+            },
+            {
+                path: "/detalle-carta/:id",
+                element: <CardDetailPage></CardDetailPage>
+            },
+            {
+                path: "/lectura-tarot",
+                element: <ReadingPage></ReadingPage>
+            },
+
+        ]
+    }
+])
 
 export default routerTarot
