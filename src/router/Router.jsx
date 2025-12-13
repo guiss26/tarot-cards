@@ -1,11 +1,25 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App"
 import CardDetailPage from "../pages/CardDetailPage.jsx"
 import Layout from "../layout/Layout"
 import ReadingPage from "../pages/ReadingPage";
 import WelcomeScreen from "../components/WelcomeScreen.jsx";
 
+function RootRedirect() {
+    const hasVisited = sessionStorage.getItem('hasVisitedWelcome');
+    
+    if (!hasVisited) {
+        return <Navigate to="/welcome-screen" replace />;
+    }
+    
+    return <Navigate to="/home" replace />;
+}
+
 const routerTarot = createBrowserRouter([
+    {
+        path: "/",
+        element: <RootRedirect />
+    },
     {
         path: "/welcome-screen",
         element: <WelcomeScreen />
@@ -15,7 +29,7 @@ const routerTarot = createBrowserRouter([
         element: <Layout />,
         children: [
             {
-                index: true,
+                path: "/home",
                 element: <App></App>
             },
             {
@@ -26,7 +40,6 @@ const routerTarot = createBrowserRouter([
                 path: "/lectura-tarot",
                 element: <ReadingPage></ReadingPage>
             },
-
         ]
     }
 ])
