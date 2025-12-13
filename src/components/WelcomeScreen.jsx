@@ -6,13 +6,24 @@ export default function WelcomeScreen() {
     return (
         <Box
             sx={{
-                minHeight: '100vh',
-                background: 'linear-gradient(to bottom,rgba(68, 51, 34, 0.23),rgb(34, 26, 17), #000)',
+                // minHeight: '100vh',
+                height: '100vh',
+                // height: '100%',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100vw',
+                // width: '100%',
+                // background: 'linear-gradient(to bottom,rgba(68, 51, 34, 0.23),rgb(34, 26, 17), #000)',
+                background: 'linear-gradient(to bottom,rgb(68, 51, 34),rgb(34, 26, 17), #000)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                position: 'relative',
+                // position: 'relative',
+                zIndex: 9999,
             }}
         >
             <motion.div
