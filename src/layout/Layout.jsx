@@ -33,18 +33,33 @@ const BackgroundVideo = styled("video")(({ theme }) => ({
 const Layout = () => {
     return (
         <>
-            <Navbar />
-            <Box component="main" sx={{ flexGrow: 1, mt: 4 }}>
-                <VideoContainer>
-                    <BackgroundVideo autoPlay loop muted playsInline>
-                        <source src="public/cielo_estrellado.mp4" type="video/mp4" />
-                    </BackgroundVideo>
-
-                    <VideoOverlay />
-                </VideoContainer>
-                <Outlet />
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+                overflow: 'hidden',
+            }}>
+                <Navbar />
+                <Box
+                    component="main"
+                    sx={{
+                        flexGrow: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        overflow: 'hidden',
+                        position: 'relative', 
+                    }}
+                >
+                    <VideoContainer>
+                        <BackgroundVideo autoPlay loop muted playsInline>
+                            <source src="public/cielo_estrellado.mp4" type="video/mp4" />
+                        </BackgroundVideo>
+                        <VideoOverlay />
+                    </VideoContainer>
+                    <Outlet />
+                </Box>
+                <Footer />
             </Box>
-            <Footer />
         </>
     )
 }
