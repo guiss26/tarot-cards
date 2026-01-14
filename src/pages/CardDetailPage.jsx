@@ -1,5 +1,3 @@
-//CardDetailPage.jsx para el detalle de cartas de la lectura
-
 import { getOneCard } from '../services/TarotServices'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -37,7 +35,7 @@ const ImageContainer = styled(Box)(({ theme }) => ({
 }));
 
 const GoddessImageContainer = styled(Box)(({ theme }) => ({
-    width: '300px', 
+    width: '300px',
     height: '100%',
     aspectRatio: '3/4',
     borderRadius: theme.spacing(1),
@@ -61,7 +59,7 @@ const BackButton = styled(Button)(({ theme }) => ({
 }));
 
 const CardDetailPage = (cardId, onBack) => {
-    const { id } = useParams() 
+    const { id } = useParams()
     const [oneCard, setOneCard] = useState(null)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
@@ -78,15 +76,15 @@ const CardDetailPage = (cardId, onBack) => {
             } catch (error) {
                 console.error('Error cargando la carta: ', error)
             } finally {
-                setLoading(false) 
+                setLoading(false)
             }
         }
 
-        fetchCard() 
-    }, [id]) 
+        fetchCard()
+    }, [id])
 
-    if (loading) return <></> 
-    if (!oneCard) return <p>No se encontró la carta</p> 
+    if (loading) return <></>
+    if (!oneCard) return <p>No se encontró la carta</p>
 
     return (
         <>
@@ -95,7 +93,7 @@ const CardDetailPage = (cardId, onBack) => {
                 <Box
                     sx={{
                         textAlign: 'center',
-                        mb: 8,
+                        mb: { xs: 4, md: 8 },
                         opacity: 0,
                         animation: 'fadeInDown 0.6s ease forwards',
                         '@keyframes fadeInDown': {
@@ -122,9 +120,15 @@ const CardDetailPage = (cardId, onBack) => {
                 </Box>
 
                 {/* Cards */}
-                <Box container sx={{ mb: 8, maxWidth: '100%', mx: 'auto', display: 'flex', gap: 4 }}>
+                <Box container sx={{
+                    mb: 8, maxWidth: '100%', mx: 'auto', display: 'flex', gap: { xs: 4, md: 4 },
+                    mx: 'auto',
+                    mb: { xs: 6, md: 8 },
+                    alignItems: 'stretch',
+                    flexDirection: { xs: 'column', md: 'row' },
+                }}>
                     {/* Card Izquierda - Carta del Tarot */}
-                    <Box sx={{ width: '100%' }}>
+                    <Box sx={{ width: { xs: '100%', md: '50%' }, flex: { xs: '0 0 auto', md: '1' }}}>
                         <StyledCard
                             sx={{
                                 opacity: 0,
@@ -133,6 +137,10 @@ const CardDetailPage = (cardId, onBack) => {
                                 '@keyframes slideInLeft': {
                                     '0%': { opacity: 0, transform: 'translateX(-50px)' },
                                     '100%': { opacity: 1, transform: 'translateX(0)' },
+                                },
+                                '@keyframes slideInUp': {
+                                    '0%': { opacity: 0, transform: 'translateY(20px)' },
+                                    '100%': { opacity: 1, transform: 'translateY(0)' },
                                 },
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -190,7 +198,7 @@ const CardDetailPage = (cardId, onBack) => {
                     </Box>
 
                     {/* Card Derecha - Diosa Contemporánea */}
-                    <Box sx={{ width: '100%' }}>
+                    <Box sx={{ width: { xs: '100%', md: '50%' }, flex: { xs: '0 0 auto', md: '1' }, }}>
                         <StyledCard
                             sx={{
                                 opacity: 0,
@@ -199,6 +207,10 @@ const CardDetailPage = (cardId, onBack) => {
                                 '@keyframes slideInRight': {
                                     '0%': { opacity: 0, transform: 'translateX(50px)' },
                                     '100%': { opacity: 1, transform: 'translateX(0)' },
+                                },
+                                '@keyframes slideInUp': {
+                                    '0%': { opacity: 0, transform: 'translateY(20px)' },
+                                    '100%': { opacity: 1, transform: 'translateY(0)' },
                                 },
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -256,7 +268,7 @@ const CardDetailPage = (cardId, onBack) => {
                 </Box>
 
                 {/* Botón Volver */}
-                <Box 
+                <Box
                     sx={{
                         textAlign: 'center',
                         opacity: 0,
