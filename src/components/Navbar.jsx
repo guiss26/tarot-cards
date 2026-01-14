@@ -34,7 +34,7 @@ const Navbar = () => {
     // Menú para desktop/tablet grande
     const desktopMenu = (
         <List component="nav" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <ListItemButton component={RouterLink} to="/home" sx={{ '&:hover': { bgcolor: 'transparent' } }}>
+            <ListItemButton component={RouterLink} to="/home" sx={{ '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}>
                 <ListItemText
                     primary="Cartas"
                     sx={{
@@ -45,7 +45,7 @@ const Navbar = () => {
                     }}
                 />
             </ListItemButton>
-            <ListItemButton component={RouterLink} to="/lectura-tarot" sx={{ '&:hover': { bgcolor: 'transparent' } }}>
+            <ListItemButton component={RouterLink} to="/lectura-tarot" sx={{ '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}>
                 <ListItemText
                     primary="Lectura Tarot"
                     sx={{
