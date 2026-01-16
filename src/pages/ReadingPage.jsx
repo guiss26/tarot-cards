@@ -124,6 +124,32 @@ const ModalContent = styled(Paper)(({ theme }) => ({
     maxHeight: '90vh',
     overflowY: 'auto',
     outline: 'none',
+    '&::-webkit-scrollbar': {
+        width: '6px', // Ancho del scrollbar
+    },
+    '&::-webkit-scrollbar-track': {
+        background: 'transparent',
+        borderRadius: '10px',
+        margin: theme.spacing(1, 0),
+    },
+    '&::-webkit-scrollbar-thumb': {
+        borderRadius: '10px',
+        border: '2px solid transparent',
+        backgroundClip: 'padding-box',
+        transition: 'background 0.3s ease',
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+        background: 'rgba(188, 138, 77, 0.5)', 
+    },
+    // Para Firefox
+    scrollbarWidth: 'thin',
+    [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(3),
+        borderRadius: theme.spacing(2),
+        '&::-webkit-scrollbar': {
+            width: '6px', 
+        },
+    },
 }));
 
 const ReadingPage = () => {
@@ -450,18 +476,23 @@ const ReadingPage = () => {
                                 textAlign: 'center',
                                 mb: 6,
                                 fontWeight: 600,
+                                fontSize: { xs: 'h4.fontSize', md: 'h3.fontSize' },
                             }}
                         >
                             Tu Lectura de Tarot
                         </Typography>
 
-                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 5 }}>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: { xs: 'column', md: 'row' },
+                            justifyContent: 'center', alignItems: 'center', gap: { xs: 6, md: 6 }, flexWrap: 'wrap'
+                        }}>
                             {positions.map((position, index) => {
                                 const selectedCard = getCardForPosition(position);
                                 if (!selectedCard) return null;
 
                                 return (
-                                    <Box key={position} sx={{ width: '100%' }}>
+                                    <Box key={position} sx={{ width: { xs: '100%', sm: '80%', md: '30%' }, maxWidth: { xs: '400px', md: 'none' }, margin: { xs: '0 auto', md: '0' }}}>
                                         <Box
                                             sx={{
                                                 textAlign: 'center',
