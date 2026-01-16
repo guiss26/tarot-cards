@@ -1,14 +1,19 @@
 # 🔮 Tarot Místico App
 
-Este proyecto forma parte de una iniciativa educativa basada en un **tarot místico**: una aplicación web interactiva dónde podras visualizar las cartas del tarot, ver el detalle de cada una de ellas y qué mujeres del mundo de la ciencia y tecnología están relacionadas 👩‍🔬
+Este proyecto forma parte de una iniciativa educativa basada en un **tarot místico**: una aplicación web interactiva dónde podrás visualizar las cartas del tarot, ver el detalle de cada una de ellas y qué mujeres del mundo de la ciencia y tecnología están relacionadas 👩‍🔬
 
-## 🎯 Funcionalidades Nivel 1:
-- Mostrar las cartas del tarot que se obtienen API externa, boca abajo.
-    👉 Hacer un GET de todas las cartas y mostrarlas en pantalla
-    👉 Hooks utilizados: useEffect y useState  
+## 🎯 Funcionalidades Nivel 1: Consumir una API pública de cartas del tarot.
+- Mostrar las cartas del tarot que se obtienen de una API externa, boca abajo.
+    👉 Hacer un GET de todas las cartas y mostrarlas en pantalla.
+    👉 Hooks utilizados: useEffect y useState.  
 - Al hacer clic en una carta mostrar la información de las cartas.
     👉 Hacer una petición GET por ID de cada carta y mostrar la información de las cartas y científicas correspondientes a la carta del tarot.
     👉 Hooks utilizados: useParams, useEffect, y useState.
+
+## 🎯 Funcionalidades Nivel 2: Crear una página para echar las cartas.
+- Permitir al usuario seleccionar solo tres cartas, asignándolas a las posiciones: Pasado, Presente y Futuro.
+    👉 Prevenir que se puedan elegir más de tres cartas. 
+- Al seleccionar cada carta, mostrar su significado y la de la diosa contemporánea asociada, según la posición.
 
 ## 💻 Tecnologías y librerías utilizadas
 - **HTML5, CSS3 y JavaScript**: Fundamentos del desarrollo web.
@@ -30,31 +35,37 @@ Este proyecto forma parte de una iniciativa educativa basada en un **tarot míst
 
 ```
 tarot/
-├── index.html                        ← Archivo HTML principal
+├── index.html                        ← Archivo HTML principal.
 ├── package.json                      ← Define las dependencias, scripts y metadatos del proyecto.
 ├── package-lock.json                 ← Registra las versiones exactas de las dependencias instaladas.
-├── vite.config.js                    ← Configuración del blunder Vite 
-├── eslint.config.js                  ← Define reglas de estilo y calidad de código 
-├── READ.md                           ← Documentación del proyecto
-├── .gitignore                        ← Archivos que no se deben subir a GitHub
-├── /public                           ← Carpeta pública (imágenes) 
-└── /src                              ← Código fuente principal del frontend
-     ├── /components                  ← Componentes reutilizables de React
-     ├── /layout                      ← Componentes de estructura (Nav, Footer, etc.)
-     ├── /pages                       ← Páginas principales del sitio 
-     │   ├── CardsTarot.jsx           ← Cartas del tarot 
-     │   ├── CardDetail.jsx           ← Detalle de carta del tarot con su científica correspondiente
-     │   └── Home.jsx                 ← Inicio
-     ├── /router                      ← Configuración de rutas con React Router
+├── vite.config.js                    ← Configuración del blunder Vite.
+├── eslint.config.js                  ← Define reglas de estilo y calidad de código.
+├── READ.md                           ← Documentación del proyecto.
+├── .gitignore                        ← Archivos que no se deben subir a GitHub.
+├── /public                           ← Carpeta pública (imágenes). 
+└── /src                              ← Código fuente principal del frontend.
+     ├── /components                  ← Componentes reutilizables de React. 
+     │   ├── CardList.jsx             ← Listado de cartas del tarot. 
+     │   ├── Footer.jsx               ← Pie de página con info autor y copyright.
+     │   ├── ImageWithFallback.jsx    ← Imagen de respaldo cuando falla la original al cargar.
+     │   ├── Navbar.jsx               ← Barra de navegación para acceder a otras páginas (cartas, lectura de cartas).
+     │   └── WelcomeScreen.jsx        ← Pantalla de Bienvenida a la página.
+     ├── /layout                      ← Componentes de estructura (Nav, Footer, etc.).
+     ├── /context                     ← Tema personalizado para MUI. 
+     ├── /pages                       ← Páginas principales del sitio. 
+     │   ├── CardDetail.jsx           ← Detalle de carta del tarot con su científica correspondiente.
+     │   └── ReadingPage.jsx          ← Lectura de cartas del tarot pasado, presente y futuro.
+     ├── /router                      ← Configuración de rutas con React Router.
      │   └── Router.jsx                                                          
-     └── /services                    ← Funciones que llaman a la API: GET
-         └── TarotServices.jsx                                               
+     ├── /services                    ← Funciones que llaman a la API: GET y GET/:id.
+     |   └── TarotServices.jsx   
+     └── App.jsx                      ← Inicio.               
 ```
 
 ## 📦 Instalación y uso
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/guiss26/tarot.git
+   git clone https://github.com/guiss26/tarot-cards.git
    cd tarot
 
 2. Instalar dependencias:
@@ -64,9 +75,6 @@ tarot/
 3. Ejecutar la aplicación React:
    ```bash
    npm run dev
-
-## 🌟 Futuras mejoras
-- Lectura de cartas (Pasado, Presente, Futuro)
 
 ## 👩‍💻 Autor
 - Guissella Pérez
