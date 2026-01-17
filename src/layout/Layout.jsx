@@ -13,6 +13,7 @@ const VideoContainer = styled(Box)(({ theme }) => ({
     height: "100%",
     overflow: "hidden",
     zIndex: -1,
+    pointerEvents: "none"
 }));
 
 const VideoOverlay = styled(Box)(({ theme }) => ({
@@ -52,7 +53,7 @@ const Layout = () => {
                 >
                     <VideoContainer>
                         <BackgroundVideo autoPlay loop muted playsInline>
-                            <source src="public/cielo_estrellado.mp4" type="video/mp4" />
+                            <source src="/cielo_estrellado.mp4" type="video/mp4" />
                         </BackgroundVideo>
                         <VideoOverlay />
                     </VideoContainer>
